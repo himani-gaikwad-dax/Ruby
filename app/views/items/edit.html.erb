@@ -1,0 +1,25 @@
+<h1>Edit Item</h1>
+
+<% if @items.errors.any? %> 
+  <h2>The following errors prevented the item from being saved</h2> 
+  <ul> 
+    <% @items.errors.full_messages.each do |msg| %> 
+      <li><%= msg %></li> 
+    <% end %> 
+  </ul>
+<% end %>
+
+<%= form_with(model: @items, local: true)  do |f| %>
+    <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    </p>
+
+    <p>
+    <%= f.submit %>
+    
+    </p>
+
+<% end %>
+
+<%= link_to 'Update and Return To List Of Kitchen Items ', items_path %>
