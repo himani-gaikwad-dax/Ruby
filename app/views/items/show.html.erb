@@ -1,0 +1,14 @@
+<h1>Displaying Kitchen Items</h1>
+
+<p>
+  <strong>Title:</strong>
+  <%= @items.title %><br>
+  <br>
+
+    <%= link_to 'Update', edit_item_path(@items) %>
+        <%= link_to "Destroy", item_path(@items), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+    <%= link_to 'Return To List Of Kitchen Items ', items_path %>
+</p>

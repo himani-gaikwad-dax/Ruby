@@ -1,0 +1,28 @@
+<h1>Listing Kitchen Items</h1>
+
+<table>
+    <thead>
+        <tr>
+        <th>Items</th>
+        <th>Activities</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @items.each do |items| %>
+        <tr>
+            <td><%= items.title %></td>
+            <td><%= link_to 'Show', item_path(items) %></td> 
+            <td><%= link_to 'Update', edit_item_path(items) %></td>
+            <td><%= link_to 'Destroy', item_path(items), data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              } %></td>           
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<p>
+<%= link_to 'Add New Kitchen Item', new_item_path %>
+</p>
